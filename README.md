@@ -1,11 +1,12 @@
 # Ang11FormsReactive
 
 Basado en https://www.digitalocean.com/community/tutorials/angular-reactive-forms-introduction
- ## 1.-Modificar tsconfig,json
+ ## config 1.-Modificar tsconfig.json
 ```
     "strict": false, 
 ```
-## 2.-Instalar bootstrap
+## config 2.-Instalar bootstrap
+-npm install bootstrap
 ```
 "styles": [
         "src/styles.css",
@@ -15,7 +16,7 @@ Basado en https://www.digitalocean.com/community/tutorials/angular-reactive-form
     "./node_modules/bootstrap/dist/js/bootstrap.js"
 ]
 ```
-## 3.-Modificar app.module.ts
+## 1.-Modificar app.module.ts
 ```
 @NgModule({
   declarations: [
@@ -25,10 +26,24 @@ Basado en https://www.digitalocean.com/community/tutorials/angular-reactive-form
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule   // <--------- 
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+```
+
+## 2.-Crear un Custom Validator
+-crear el fichero "src/shared/validador.ts"
+```
+// Validar una URL
+import { AbstractControl } from '@angular/forms';
+
+export function ValidateUrl(control: AbstractControl) {
+  if (!control.value.startsWith('https') || !control.value.includes('.io')) {
+    return { invalidUrl: true };
+  }
+  return null;
+}
 ```

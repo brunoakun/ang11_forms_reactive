@@ -7,7 +7,8 @@
             Nombre:
             <input formControlName="nombre">
         </label>
-        <div *ngIf="formContacto.get('nombre').invalid && (formContacto.get('nombre').dirty || formContacto.get('nombre').touched)">
+        <div
+            *ngIf="formContacto.get('nombre').invalid && (formContacto.get('nombre').dirty || formContacto.get('nombre').touched)">
             Please provide a name.
         </div>
     </div>
@@ -19,9 +20,32 @@
     </div>
     <div>
         <label>
+            url:
+            <input formControlName="url">
+        </label>
+        <div *ngIf="(
+                formContacto.get('url').dirty ||
+                formContacto.get('url').touched
+               ) &&
+               formContacto.get('url').errors">
+            Solo serán válidas url's sobre HTTPS y .com
+        </div>
+
+
+    </div>
+    <div>
+        <label>
             Mensaje:
             <input formControlName="mensaje">
         </label>
     </div>
     <button type="submit" [disabled]="formContacto.invalid">Enviar</button>
+
+    <hr>
+    formContacto.value:{{formContacto.value | json}}<br>
+    formContacto.valid:{{formContacto.valid | json}}<br>
+    formContacto.errors:{{formContacto.errors | json}}<br>
+    <br>
+    formContacto.url.valid:{{formContacto.get('url').valid | json}}<br> 
+    formContacto.url.errors:{{formContacto.get('url').errors | json}}<br>  
 </form>
