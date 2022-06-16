@@ -1,11 +1,11 @@
 # Ang11FormsReactive
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
- ## Modificar tsconfig,json
+Basado en https://www.digitalocean.com/community/tutorials/angular-reactive-forms-introduction
+ ## 1.-Modificar tsconfig,json
 ```
     "strict": false, 
 ```
-## Instalar bootstrap
+## 2.-Instalar bootstrap
 ```
 "styles": [
         "src/styles.css",
@@ -15,7 +15,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
     "./node_modules/bootstrap/dist/js/bootstrap.js"
 ]
 ```
-## Modificar app.module.ts
+## 3.-Modificar app.module.ts
 ```
 @NgModule({
   declarations: [
