@@ -1,0 +1,27 @@
+<p>The ngOnInit form construction can be rewritten with the FormBuilder helper. This allows you to forgo of all the
+    newing of form group and form controls.</p>
+
+<form [formGroup]="formContacto" (ngSubmit)="onSubmit(formContacto)">
+    <div>
+        <label>
+            Nombre:
+            <input formControlName="nombre">
+        </label>
+        <div *ngIf="formContacto.get('nombre').invalid && (formContacto.get('nombre').dirty || formContacto.get('nombre').touched)">
+            Please provide a name.
+        </div>
+    </div>
+    <div>
+        <label>
+            eMail:
+            <input formControlName="email">
+        </label>
+    </div>
+    <div>
+        <label>
+            Mensaje:
+            <input formControlName="mensaje">
+        </label>
+    </div>
+    <button type="submit" [disabled]="formContacto.invalid">Enviar</button>
+</form>
